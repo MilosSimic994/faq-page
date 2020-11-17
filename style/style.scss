@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+$mobile: 375px;
+$veryDarkBlue: hsl(238, 29%, 16%);
+$softRed: hsl(14, 88%, 65%);
+$softViolet: hsl(273, 75%, 66%);
+$SoftBlue: hsl(240, 73%, 65%);
+$veryDarkGrayishBlue: hsl(237, 12%, 33%);
+$darkGrayishBlue: hsl(240, 6%, 50%);
+
+$lightGrayishBlue: hsl(240, 5%, 91%);
+
+@mixin mob {
+  @media screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-image: linear-gradient(
+    hsl(273, 75%, 66%) 0%,
+    hsl(240, 73%, 65%) 100%
+  );
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  background-color: #fff;
+  height: 700px;
+  position: relative;
+  border-radius: 20px;
+
+  @include mob {
+    width: 80%;
+    height: 76vh;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .ilustration-container {
+    width: 50%;
+    position: relative;
+
+    .img-pattern {
+      width: 50rem;
+      height: 160%;
+      position: absolute;
+      left: -55%;
+      top: -45%;
+    }
+
+    .img-pattern-mob {
+      display: none;
+    }
+
+    .img-woman {
+      transform: rotateY(35deg);
+      width: 45rem;
+      position: absolute;
+      left: -27.2%;
+      top: 7%;
+    }
+    .img-woman-mob {
+      display: none;
+    }
+
+    .img-box {
+      width: 15rem;
+      position: absolute;
+      left: -21%;
+      top: 39%;
+      z-index: 122;
+    }
+    .img-box-mob {
+      display: none;
+    }
+
+    @include mob {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .img-pattern {
+        display: none;
+      }
+      .img-woman {
+        display: none;
+      }
+      .img-box {
+        display: none;
+      }
+
+      .img-pattern-mob {
+        display: block;
+        width: 12rem;
+      }
+
+      .img-woman-mob {
+        width: 12rem;
+        display: block;
+        position: absolute;
+        top: -85%;
+        z-index: 122;
+      }
+    }
+  }
+
+  .QA-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-height: 100%;
+
+    @include mob {
+      width: 80%;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: left;
+      margin-bottom: 5rem;
+    }
+
+    @include mob {
+      h1 {
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 1rem;
+      }
+    }
+    .holder-qa {
+      font-size: 14px;
+      height: 300px;
+      width: 80%;
+
+      @include mob {
+        margin-top: 2rem;
+        font-size: 12px;
+        width: 100%;
+      }
+      div {
+        width: 90%;
+        border-bottom: 1px solid $lightGrayishBlue;
+        padding: 0;
+        position: relative;
+
+        h3 {
+          font-weight: 400;
+        }
+
+        .font-weight {
+          font-weight: 700;
+        }
+
+        .answer {
+          font-weight: 400;
+          display: none;
+        }
+        .show-text {
+          display: block;
+        }
+        img {
+          position: absolute;
+          right: -40px;
+          top: 0;
+        }
+      }
+    }
+  }
+}
